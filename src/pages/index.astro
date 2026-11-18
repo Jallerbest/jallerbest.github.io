@@ -1,16 +1,107 @@
 ---
+const proyectos = [
+  {
+    titulo: "App de control de gastos",
+    descripcion: "Aplicación para registrar gastos, categorizarlos y visualizar el gasto mensual.",
+    tecnologias: ["React", "Python", "SQLite"],
+    enlace: "/proyectos/app-gastos",
+    imagen: "/images/app-gastos.png"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Juan Angel Laguna Luna | Portafolio</title>
+    <meta name="description" content="Portafolio de Juan Angel Laguna Luna: proyectos, demos y proceso de desarrollo." />
+  </head>
+
+  <body class="min-h-screen">
+    <header class="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
+      <a href="/" class="text-lg font-semibold">Juan Angel</a>
+
+      <nav class="flex gap-6 text-sm">
+        <a href="/proyectos">Proyectos</a>
+        <a href="/sobre-mi">Sobre mí</a>
+        <a href="https://github.com/Jallerbest">GitHub</a>
+        <a href="https://www.linkedin.com/in/tu-usuario">LinkedIn</a>
+      </nav>
+    </header>
+
+    <main class="mx-auto max-w-6xl px-6">
+      <section class="py-20">
+        <p class="mb-3 text-sm font-medium text-sky-400">
+          Desarrollador de software
+        </p>
+
+        <h1 class="max-w-3xl text-4xl font-bold leading-tight sm:text-6xl">
+          Construyo aplicaciones y comparto cómo las desarrollo.
+        </h1>
+
+        <p class="mt-6 max-w-2xl text-lg text-slate-300">
+          Aquí encontrarás proyectos personales, demos, decisiones técnicas y
+          el proceso detrás de cada herramienta que he creado.
+        </p>
+
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a
+            href="/proyectos"
+            class="rounded-lg bg-sky-500 px-6 py-3 font-semibold text-slate-950 transition hover:bg-sky-400"
+          >
+            Ver proyectos
+          </a>
+
+          <a
+            href="https://www.linkedin.com/in/tu-usuario"
+            class="rounded-lg border border-slate-700 px-6 py-3 font-semibold transition hover:border-sky-400"
+          >
+            Conectar en LinkedIn
+          </a>
+        </div>
+      </section>
+
+      <section class="pb-20">
+        <h2 class="mb-8 text-2xl font-bold">Proyectos destacados</h2>
+
+        <div class="grid gap-6 sm:grid-cols-2">
+          {proyectos.map((proyecto) => (
+            <a
+              href={proyecto.enlace}
+              class="group overflow-hidden rounded-2xl border border-slate-800 bg-slate-900/60 transition hover:border-sky-500"
+            >
+              <img
+                src={proyecto.imagen}
+                alt={`Captura de ${proyecto.titulo}`}
+                class="h-48 w-full object-cover"
+              />
+
+              <div class="p-6">
+                <h3 class="text-xl font-semibold group-hover:text-sky-400">
+                  {proyecto.titulo}
+                </h3>
+
+                <p class="mt-2 text-slate-300">
+                  {proyecto.descripcion}
+                </p>
+
+                <div class="mt-4 flex flex-wrap gap-2 text-xs text-slate-400">
+                  {proyecto.tecnologias.map((tech) => (
+                    <span class="rounded-full border border-slate-700 px-3 py-1">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+    </main>
+
+    <footer class="border-t border-slate-800 py-10 text-center text-sm text-slate-400">
+      <p>© 2026 Juan Angel Laguna Luna</p>
+    </footer>
+  </body>
 </html>
